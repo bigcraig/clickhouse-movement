@@ -1,0 +1,8 @@
+# ignore everything
+/*
+
+# allow python files ONLY in this folder (not subfolders)
+!/*.py
+
+# allow this file
+!.gitignore
