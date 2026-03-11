@@ -17,7 +17,7 @@ FROM
 GROUP BY mac_address
 
 having path_str like '%->%'
-order by DeltaT desc  limit 100
+order by DeltaT asc  limit 100
 """
 
 result = chdb.query(query)

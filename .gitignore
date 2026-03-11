@@ -3,6 +3,6 @@
 
 # allow python files ONLY in this folder (not subfolders)
 !/*.py
-
+!/*.sql
 # allow this file
 !.gitignore
