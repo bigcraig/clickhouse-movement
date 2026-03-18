@@ -1,4 +1,4 @@
-# This query will aggregate all node transistions with a total trip tame > 60 secs
+# This query will aggregate all node transistions with a total trip time > 60 secs
 
 WITH paths AS
 (
@@ -48,7 +48,8 @@ FROM
     FROM paths
     WHERE
         length(path) > 1
-        AND lifetime > 300
+        
+        AND lifetime > 600   /* only macs with a longer lifetime considered */
 )
 GROUP BY
     from_probe,

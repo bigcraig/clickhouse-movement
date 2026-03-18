@@ -18,7 +18,7 @@ engine = create_engine(
 )
 
 # Load data into a DataFrame
-df = pd.read_sql("SELECT * FROM rawdata where timestamp  < 1771678800000 and timestamp > 1771677000000 ", engine)
+df = pd.read_sql("SELECT * FROM rawdata where timestamp > 1770987600000 and timestamp < 1772283600000 and (probe_id='0992c7d5f' or probe_id='0d07ce7d1')", engine)
 
 # Export to CSV
 df.to_csv("rawdata.csv", index=False)

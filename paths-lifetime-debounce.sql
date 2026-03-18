@@ -38,13 +38,13 @@ FROM
         -- Remove consecutive duplicates and optionally short bounces under 10s
         WHERE prev_probe IS NULL 
            OR prev_probe != probe_id 
-           OR (timestamp - prev_ts) > 60
+           OR (timestamp - prev_ts) > 60 -- debounce time
         ORDER BY mac_address, timestamp
     )
     GROUP BY mac_address
 )
-WHERE lifetime > 300
+WHERE lifetime > 300  -- total life of mac_address, reduce noise 
 ORDER BY total_time_seconds DESC
 )
 GROUP BY  full_path
-order by count_path
+order by count_path desc
